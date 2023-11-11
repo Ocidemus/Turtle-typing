@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/fav-icon.png">
+    <link rel="stylesheet" href="../themes/8008.css" id="root">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../img_css/all.min.css">
+    <link rel="stylesheet" href="../img_css/fontawesome.min.css">
+    <title>About| Turtletype</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="notification_tab hidden">
+            <div class="notification_tab-content">
+                <div class="announcement">
+                    <div class="n_text"><i class="fa-solid fa-bullhorn"></i>
+                        <p>Announcements</p>
+                    </div>
+                </div>
+                <div class="notification">
+                    <div class="n_text"><i class="fa-solid fa-message"></i>
+                        <p>Notifications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main_menu is the main front of the site that align the element in the center  -->
+        <div class="main_menu">
+            <!-- header is the upper part of the site that contains logo and user details setting etc -->
+            <div class="header">
+                <div class="main_tab">
+                    <div class="main_tab-logo"><a href="../index.html"><img src="../img/logo.png" alt="">turtletype</a>
+                    </div>
+                    <divl class="main_tab-options">
+                        <ul>
+                            <li><a href="../index.html"><i class="fa-regular fa-keyboard"></i></a></li>
+                            <li>
+                                <div class="leader"><i class="fa-solid fa-crown"></i></div>
+                            </li>
+                            <li><a href="about.html"><i class="fa-solid fa-info"></i></a></li>
+                            <li><a href="settings.html"><i class="fa-solid fa-gear"></i></i></a></li>
+                        </ul>
+                    </divl>
+                </div>
+                <div class="menu">
+                    <div class="menu_notification">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <div class="account">
+                        <a href="login.html"><i class="fa-solid fa-user"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="leader_board hidden">
+                <div class="leader_header">
+                    <div class="exit"><i class="fa-solid fa-xmark"></i></div>
+                </div>
+                <div class="leader_body"></div>
+            </div>
+            <script src="../notification.js"></script>
+            <script type="module">
+                import { getSavedTheme, saveTheme } from './../theme.js';
+
+                const root = document.getElementById("root");
+                const themeSelect = document.getElementById("theme-select");
+                root.href = `../themes/${getSavedTheme()}.css`;
+            </script>
+</body>
+
+</html>
