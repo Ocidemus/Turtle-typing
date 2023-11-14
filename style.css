@@ -465,13 +465,15 @@ body {
   width: 40%;
 }
 
-.login_tab .forms form>* {
-  margin-bottom: 2rem;
+.login_tab .forms form>*{
+  margin: 0.7rem;
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--text-color);
 }
-
+.login_tab .forms form p{
+  margin: 0 0.7rem;
+}
 .login_tab .forms form p {
   font-size: 1.8rem;
 }
@@ -485,6 +487,7 @@ body {
 }
 
 .submit_button {
+  margin-top: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -521,4 +524,22 @@ body {
 .exit i {
   font-size: 2.8rem;
   color: var(--text-color);
+}
+
+
+
+
+.form-error{
+  border-bottom: 4px solid var(--error-color) !important;
+}
+#strength,#error_message{
+  color: var(--error-color);
+  font-size: 1.2rem;
+}
+.correct_message{
+  color: var(--sub-color) !important;
+}
+#login_message{
+  color: var(--error-color);
+  font-size: 1.2rem;
 }
