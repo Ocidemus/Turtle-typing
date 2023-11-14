@@ -1,0 +1,151 @@
+const signup = document.querySelector("#signup").closest(".submit_button"),
+  username = document.getElementById("username"),
+  mail = document.getElementById("mail"),
+  verifyMail = document.getElementById("verifyMail"),
+  password = document.getElementById("password"),
+  verifyPassword = document.getElementById("verifyPassword"),
+  message = document.querySelector("#error_message");
+
+
+//strength of password function
+var strengthTests = [
+    /[A-Z]+/, // checks for at least one uppercase letter
+    /[a-z]+/, // checks for at least one lowercase letter
+    /[0-9]+/, // checks for at least one number
+    /[^A-Za-z0-9]+/, // checks for at least one special character
+    /.{8,}/ // checks for a minimum length of 8 characters
+];
+
+function validatePasswordStrength(password) {
+    var strength = 0;
+    for (var i = 0; i < strengthTests.length; i++) {
+        if (strengthTests[i].test(password)) {
+            strength++;
+        }
+    }
+    return strength;
+}
+
+function displayPasswordStrengthMessage() {
+    var strength = validatePasswordStrength(password.value);
+    const message=document.querySelector("#strength");
+    if (strength < 5) {
+        message.innerText="Your password is not strong enough.";
+        message.classList.remove("correct_message");
+    } else {
+        message.innerText="Your password is strong.";
+        message.classList.add("correct_message");
+    }
+}
+
+// Event listener for password input
+password.addEventListener("input", function () {
+    displayPasswordStrengthMessage();
+});
+
+
+
+// email verification 
+function validateEmail(email) {
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (emailPattern.test(email)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// Event listener for Submit
+signup.addEventListener("click", function (event) {
+  event.preventDefault();
+  username.classList.remove("form-error");
+  mail.classList.remove("form-error");
+  verifyMail.classList.remove("form-error");
+  password.classList.remove("form-error");
+  verifyPassword.classList.remove("form-error");
+  message.innerText = "";
+
+  // Validate username
+  if (username.value.trim() === "") {
+    username.classList.add("form-error");
+    message.innerText = "Username cannot be empty";
+    return;
+  }
+
+  if (username.value.length < 8) {
+    username.classList.add("form-error");
+    message.innerText = "Length cannot be less than 8 characters";
+    return;
+  }
+
+  // Validate email matching
+  if (mail.value.trim() === "" || verifyMail.value.trim() === "") {
+    mail.classList.add("form-error");
+    verifyMail.classList.add("form-error");
+    message.innerText = "Emails cannot be empty";
+    return;
+  }
+  if(!validateEmail(mail.value))
+  {
+    mail.classList.add("form-error");
+    verifyMail.classList.add("form-error");
+    message.innerText = "Enter a valid mail";
+    return;
+  }
+  if (mail.value !== verifyMail.value) {
+    mail.classList.add("form-error");
+    verifyMail.classList.add("form-error");
+    message.innerText = "Entered emails are not the same!";
+    return;
+  }
+
+  // Validate password matching
+  if (password.value.trim() === "" || verifyPassword.value.trim() === "") {
+    password.classList.add("form-error");
+    verifyPassword.classList.add("form-error");
+    message.innerText = "Passwords cannot be empty";
+    return;
+  }
+  if(validatePasswordStrength(password.value)<5)
+  {
+    password.classList.add("form-error");
+    verifyPassword.classList.add("form-error");
+    message.innerText = "Enter a strong password.";
+    return;
+  }
+  if (password.value !== verifyPassword.value) {
+    password.classList.add("form-error");
+    verifyPassword.classList.add("form-error");
+    message.innerText = "Entered passwords are not the same!";
+    return;
+  }
+});
+
+
+
+const login=document.querySelector("#login").closest(".submit_button"),
+lmail=document.getElementById("lmail"),
+lpassword=document.getElementById("lpassword"),
+lmessage=document.getElementById("login_message");
+
+login.addEventListener("click",function(event){
+    event.preventDefault();
+    lmessage.innerText=" ";
+    lmail.classList.remove("form-error");
+    lpassword.classList.remove("form-error");
+    if (lmail.value.trim() === "") {
+        lmail.classList.add("form-error");
+        lmessage.innerText = "Email cannot be empty";
+        return;
+    }
+    if(!validateEmail(lmail.value))
+    {
+        lmail.classList.add("form-error");
+        lmessage.innerText = "Enter a valid mail";
+        return;
+    }
+    if (lpassword.value.trim() === "") {
+        lpassword.classList.add("form-error");
+        lmessage.innerText = "Passwords cannot be empty";
+        return;
+    }
+});
