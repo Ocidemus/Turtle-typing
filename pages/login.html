@@ -50,11 +50,13 @@
             <div class="forms">
             <form method="post" class="register">
                 <p>register</p>
-                <input type="text" id="username" placeholder="username">
+                <input type="text" id="username" placeholder="username" >
                 <input type="email" id="mail" placeholder="email">
                 <input type="email" id="verifyMail" placeholder="verify mail">
                 <input type="password" id="password" placeholder="password">
+                <p id="strength"></p>
                 <input type="password" id="verifyPassword" placeholder="verify password">
+                <p id="error_message"></p>
                 <div class="submit_button">
                 <label for="signup"><i class="fa-solid fa-user-plus"></i></label>
                 <input type="submit" value="Sign up" id="signup">
@@ -64,9 +66,10 @@
                 <p>login</p>
                 <input type="email" id="lmail" placeholder="email">
                 <input type="password" id="lpassword" placeholder="password">
+                <p id="login_message"></p>
                 <div class="submit_button">
                 <label for="signup"><i class="fa-solid fa-right-to-bracket"></i></label>
-                <input type="submit" value="Sign up" id="signup">
+                <input type="submit" value="Login" id="login">
                 </div>
             </form>
         </div>
@@ -86,8 +89,7 @@
         
             // Set the initial theme based on the saved theme or use the default
             root.href = `../themes/${getSavedTheme()}.css`;
-
-            
         </script>
+        <script src="../login.js"></script>
 </body>
 </html>
