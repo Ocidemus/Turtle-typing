@@ -1,5 +1,4 @@
 "use strict";
-import { getSavedTheme, saveTheme } from "./theme.js";
 const notification_tab = document.querySelector(".notification_tab");
 const notification_icon = document.querySelector(".menu_notification");
 const main = document.querySelector(".main");
@@ -31,10 +30,6 @@ var cmp = [];
 var wpm = [];
 var xAxis = [];
 var count = 0;
-
-// theme code
-const root = document.getElementById("root");
-root.href = `../themes/${getSavedTheme()}.css`;
 
 custTime.addEventListener("click", function () {
   const box = document.querySelector(".custom_time");
@@ -154,6 +149,16 @@ function startTyping() {
   var start = 1;
   // listener function
   xAxis[0] = 0;
+
+  function calculateWPM(correct, time) {
+    // Assuming an average word length of 5 characters
+    const words = correct / 5; // Calculate the number of words typed
+    const minutes = time / 60; // Convert time to minutes
+    const wpm = words / minutes; // Calculate WPM
+
+    return Math.round(wpm); // Round off to the nearest integer
+  }
+
   document.addEventListener("keydown", function (event) {
     if (!isTyping) {
       timming();
@@ -195,7 +200,7 @@ function startTyping() {
       paragraph.style.transform = `translateY(${-1 * (obj.t - top)}px)`;
     }
     cmp[start] = count - incorrect;
-    wpm[start] = Math.round(((count - incorrect) / 5 / time) * 60);
+    wpm[start] = calculateWPM(count - incorrect, maxtime);
   });
 
   function pushtime(maxtime) {
@@ -304,12 +309,9 @@ function startTyping() {
     consistency.innerText = `${calculateConsistency(cmp)}%`;
     rawSpeed.innerText = calculateRawSpeed(count, maxtime).toFixed(2);
 
-    var sum = 0,
-      wpmavg = 0;
-    for (var i = 0; i < wpm.length; i++) {
-      sum += wpm[i];
-    }
-    wpmavg = Math.floor(sum / 60);
+    const totalWPM = wpm.reduce((acc, val) => acc + val, 0); // Sum of all WPM values
+    const wpmavg = Math.round(totalWPM / wpm.length); // Calculate average WPM
+
     wpmVal.innerText = wpmavg;
   }
 }
