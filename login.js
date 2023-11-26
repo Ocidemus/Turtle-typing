@@ -9,7 +9,7 @@ var option=0;
 // Using Fetch API to send a POST request to a PHP script
 function sendData(data) {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "../data.php", true);
+  xhr.open("POST", "../login.php", true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -180,6 +180,5 @@ login.addEventListener("click", function (event) {
       password: lpassword.value,
     };
     sendData(dataToSend);
-    data();
   }
 });
