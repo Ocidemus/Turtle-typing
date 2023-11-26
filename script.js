@@ -14,6 +14,19 @@ const focusMessage = document.querySelector(".focus");
 const custTime = document.querySelector("#custom-time-radio");
 const timeSubmit = document.querySelector("#submit");
 
+// function to send data to php file
+function sendData(data) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "php/data.php", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      alert(xhr.responseText);
+    }
+  };
+  xhr.send(JSON.stringify(data));
+}
+
 function getime() {
   return localStorage.getItem("time") || 15;
 }
@@ -223,6 +236,12 @@ function startTyping() {
         clearInterval(countdownInterval);
         result_tab.classList.remove("hidden");
         typing_area.classList.add("hidden");
+        const dataToSend = {
+          cmp: 1,
+          wmp: 2,
+          time: 3,
+        };
+        sendData(dataToSend);
         pushtime(maxtime);
         displayResult(xAxis, cmp, wpm);
       }
