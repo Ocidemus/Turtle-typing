@@ -5,15 +5,15 @@ const signup = document.querySelector("#signup").closest(".submit_button"),
   password = document.getElementById("password"),
   verifyPassword = document.getElementById("verifyPassword"),
   message = document.querySelector("#error_message");
-var option=0;
+var option = 0;
 // Using Fetch API to send a POST request to a PHP script
 function sendData(data) {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "../data.php", true);
+  xhr.open("POST", "../php/login.php", true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      alert(xhr.responseText);
+      // alert(xhr.responseText);
     }
   };
   xhr.send(JSON.stringify(data));
@@ -78,7 +78,7 @@ function validateEmail(email) {
 // Event listener for Submit
 signup.addEventListener("click", function (event) {
   event.preventDefault();
-  option=1;
+  option = 1;
   username.classList.remove("form-error");
   mail.classList.remove("form-error");
   verifyMail.classList.remove("form-error");
@@ -155,7 +155,7 @@ const login = document.querySelector("#login").closest(".submit_button"),
 
 login.addEventListener("click", function (event) {
   event.preventDefault();
-  option=2;
+  option = 2;
   lmessage.innerText = " ";
   lmail.classList.remove("form-error");
   lpassword.classList.remove("form-error");
@@ -180,6 +180,5 @@ login.addEventListener("click", function (event) {
       password: lpassword.value,
     };
     sendData(dataToSend);
-    data();
   }
 });

@@ -14,6 +14,19 @@ const focusMessage = document.querySelector(".focus");
 const custTime = document.querySelector("#custom-time-radio");
 const timeSubmit = document.querySelector("#submit");
 
+// function to send data to php file
+function sendData(data) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "php/data.php", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // console.log(xhr.responseText);
+    }
+  };
+  xhr.send(JSON.stringify(data));
+}
+
 function getime() {
   return localStorage.getItem("time") || 15;
 }
@@ -223,8 +236,23 @@ function startTyping() {
         clearInterval(countdownInterval);
         result_tab.classList.remove("hidden");
         typing_area.classList.add("hidden");
+
+        const totalWPM = wpm.reduce((acc, val) => acc + val, 0); // Sum of all WPM values
+        const wpmavg = Math.round(totalWPM / wpm.length); // Calculate average WPM
+        const rawSpeed = calculateRawSpeed(count, maxtime).toFixed(2);
+        const consistency = calculateConsistency(cmp);
+        const accuracy = calculateAccuracy(correct, count);
+
         pushtime(maxtime);
         displayResult(xAxis, cmp, wpm);
+        const dataToSend = {
+          wpm: wpmavg,
+          time: maxtime,
+          rawSpeed: rawSpeed,
+          consistency: consistency,
+          accuracy: accuracy,
+        };
+        sendData(dataToSend);
       }
     }, 1000);
   }
