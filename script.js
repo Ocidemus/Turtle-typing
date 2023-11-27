@@ -1,4 +1,5 @@
 "use strict";
+import { saveUser, getUser } from "./theme.js";
 const notification_tab = document.querySelector(".notification_tab");
 const notification_icon = document.querySelector(".menu_notification");
 const main = document.querySelector(".main");
@@ -247,6 +248,7 @@ function startTyping() {
         pushtime(maxtime);
         displayResult(xAxis, cmp, wpm);
         const dataToSend = {
+          user_id: getUser(),
           wpm: wpmavg,
           time: maxtime,
           rawSpeed: rawSpeed,

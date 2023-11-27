@@ -1,3 +1,4 @@
+import { saveUser, getUser } from "./theme.js";
 const signup = document.querySelector("#signup").closest(".submit_button"),
   username = document.getElementById("username"),
   mail = document.getElementById("mail"),
@@ -5,7 +6,6 @@ const signup = document.querySelector("#signup").closest(".submit_button"),
   password = document.getElementById("password"),
   verifyPassword = document.getElementById("verifyPassword"),
   message = document.querySelector("#error_message");
-var option = 0;
 // Using Fetch API to send a POST request to a PHP script
 function sendData(data) {
   var xhr = new XMLHttpRequest();
@@ -18,7 +18,6 @@ function sendData(data) {
   };
   xhr.send(JSON.stringify(data));
 }
-
 //strength of password function
 var strengthTests = [
   /[A-Z]+/, // checks for at least one uppercase letter
@@ -78,7 +77,6 @@ function validateEmail(email) {
 // Event listener for Submit
 signup.addEventListener("click", function (event) {
   event.preventDefault();
-  option = 1;
   username.classList.remove("form-error");
   mail.classList.remove("form-error");
   verifyMail.classList.remove("form-error");
@@ -139,10 +137,9 @@ signup.addEventListener("click", function (event) {
     return;
   } else {
     const dataToSend = {
-      value: option,
-      username: username.value,
-      email: mail.value,
-      password: password.value,
+      username: username.value.trim(),
+      email: mail.value.trim(),
+      password: password.value.trim(),
     };
     sendData(dataToSend);
     const popWindow = document.querySelector(".signup_window");
@@ -157,7 +154,6 @@ const login = document.querySelector("#login").closest(".submit_button"),
 
 login.addEventListener("click", function (event) {
   event.preventDefault();
-  option = 2;
   lmessage.innerText = " ";
   lmail.classList.remove("form-error");
   lpassword.classList.remove("form-error");
@@ -177,10 +173,30 @@ login.addEventListener("click", function (event) {
     return;
   } else {
     const dataToSend = {
-      value: option,
-      email: lmail.value,
-      password: lpassword.value,
+      user_id: getUser(),
+      email: lmail.value.trim(),
+      password: lpassword.value.trim(),
     };
-    sendData(dataToSend);
+    function sendData(data, callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "../php/user.php", true);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            const responseData = JSON.parse(xhr.responseText);
+            callback(responseData);
+          } else {
+            console.error("Request error:", xhr.status);
+          }
+        }
+      };
+      xhr.send(JSON.stringify(data));
+    }
+    sendData(dataToSend, function (responseData) {
+      var user = responseData[0]["user_id"];
+      saveUser(user);
+      console.log(getUser());
+    });
   }
 });
