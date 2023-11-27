@@ -12,7 +12,6 @@
 --line-height: calc(var(--font-size) * 1.5);
 --icon-size-small: 1.8rem;
 --icon-size-large: 2.4rem; */
-
 @keyframes slideIn {
   0% {
     width: 0;
