@@ -552,6 +552,10 @@ body {
   cursor: pointer;
 }
 /* leader board */
+.leader_tab {
+  height: 100vh;
+  width: 100%;
+}
 .leader_board {
   position: absolute;
   top: 50%;
@@ -560,27 +564,101 @@ body {
   transform: translate(-50%, -50%);
   background-color: var(--bg-color);
   z-index: 100;
-  height: 80vh;
-  width: 70%;
+  height: 90vh;
+  width: 90%;
 }
 
-.leader_head {
+.leader_header {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 5rem;
 }
-
+.leader_header h1 {
+  color: var(--text-color);
+  font-size: 2rem;
+  align-self: flex-start;
+  font-size: 3.2rem;
+  font-weight: 400;
+}
 .exit {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 2rem;
+  align-self: flex-end;
   cursor: pointer;
 }
-
 .exit i {
   font-size: 2.8rem;
-  color: var(--text-color);
+  color: var(--main-color);
 }
-
+.leader_body {
+  /* margin-top: 1rem; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0 5rem;
+  overflow: hidden;
+  gap: 2rem;
+}
+.leader_board .board_15 {
+  height: 70vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.leader_board .board_60 {
+  height: 70vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.leader_data,
+.row_name {
+  /* background-color: var(--sub-alt-color); */
+  padding: 1.5rem 2rem;
+}
+.odd_row {
+  background-color: none;
+}
+.even_row {
+  background-color: var(--sub-alt-color);
+}
+.leader_board div ul {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr 0.5fr;
+  text-decoration: none;
+  align-items: center;
+}
+.leader_board div ul li {
+  color: var(--text-color);
+  list-style-type: none;
+  font-size: 1.2rem;
+  justify-self: start;
+  text-align: center;
+  font-weight: 800;
+}
+.leader_board div ul li i {
+  color: var(--text-color);
+  margin-right: 1rem;
+}
+.weight {
+  font-weight: 100;
+}
+.title {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0 5rem;
+  gap: 2rem;
+}
+.title div p {
+  color: var(--text-color);
+  font-size: 2.8rem;
+}
+/* custom scroll bar */
+::-webkit-scrollbar {
+  width: 0.5rem;
+  background-color: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 1rem;
+}
 /* login from */
 .form-error {
   border-bottom: 4px solid var(--error-color) !important;
