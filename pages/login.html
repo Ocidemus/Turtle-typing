@@ -99,10 +99,51 @@
     </div>
     <div class="leader_board hidden">
         <div class="leader_header">
-            <div class="exit"><i class="fa-solid fa-xmark"></i></div>
+          <h1>All-Time | Leaderbords</h1>
+          <div class="exit"><i class="fa-solid fa-xmark"></i></div>
         </div>
-        <div class="leader_body"></div>
-    </div>
+        <div class="title">
+          <div>
+            <p>Time 15</p>
+            <div class="row_name">
+              <ul>
+                <li>#rank</li>
+                <li>#name</li>
+                <li>wpm<br><span class="weight">accuracy</span></li>
+                <li>raw<br><span class="weight">consistency</span></li>
+                <li>time</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <p>Time 60</p>
+            <div class="row_name">
+              <ul>
+                <li>#rank</li>
+                <li>#name</li>
+                <li>wpm<br><span class="weight">accuracy</span></li>
+                <li>raw<br><span class="weight">consistency</span></li>
+                <li>time</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    
+        <!-- <div class="row_name">
+          <ul>
+            <li>#rank</li>
+            <li>#name</li>
+            <li>wpm<br><span class="weight">accuracy</span></li>
+            <li>raws<br><span class="weight">consistency</span></li>
+            <li>time</li>
+          </ul>
+        </div> -->
+        <div class="leader_body">
+          <div class="board_15">
+          </div>
+          <div class="board_60"></div>
+        </div>
+      </div>
     <script src="../notification.js"></script>
     <script type="module">
         import { getSavedTheme, saveTheme } from './../theme.js';
@@ -114,6 +155,7 @@
         root.href = `../themes/${getSavedTheme()}.css`;
     </script>
     <script src="../login.js"></script>
+    <script src="../leaderboard.js"></script>
 </body>
 
 </html>
