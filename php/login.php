@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $sql = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
             $sql->bind_param("sss", $username, $email, $password);
             $sql->execute();
+            echo "true";
         } 
     else {
             $sql = $conn->prepare("SELECT * FROM users WHERE email=? AND password=?");

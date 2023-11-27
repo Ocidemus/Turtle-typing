@@ -335,7 +335,7 @@ body {
   transition: color 0.4s;
 }
 
-.options_tab input[type="radio"]:checked+label {
+.options_tab input[type="radio"]:checked + label {
   color: var(--main-color);
   transition: all 0.1s;
 }
@@ -424,7 +424,6 @@ body {
   border-radius: 2rem;
 }
 
-
 /* setting tab */
 .setting_tab {
   margin-top: 10rem;
@@ -447,7 +446,6 @@ body {
   outline: none;
 }
 
-
 /* login page */
 .login_tab {
   margin-top: 20rem;
@@ -465,13 +463,13 @@ body {
   width: 40%;
 }
 
-.login_tab .forms form>*{
+.login_tab .forms form > * {
   margin: 0.7rem;
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--text-color);
 }
-.login_tab .forms form p{
+.login_tab .forms form p {
   margin: 0 0.7rem;
 }
 .login_tab .forms form p {
@@ -495,13 +493,70 @@ body {
   cursor: pointer;
 }
 
-
-
+.signup_window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(10px);
+}
+.window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40%;
+  width: 50%;
+  background-color: var(--sub-color);
+  z-index: 100;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 5rem;
+  border-radius: 2rem;
+}
+.w_head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.w_head i {
+  color: var(--main-color);
+  font-size: 9rem;
+  margin-bottom: 2rem;
+}
+.w_head h1 {
+  color: var(--main-color);
+  font-size: 3rem;
+}
+.w_body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.w_body p {
+  color: var(--text-color);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.w_body button {
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  background-color: var(--sub-alt-color);
+  color: var(--text-color);
+  border: none;
+  cursor: pointer;
+}
 /* leader board */
 .leader_board {
   position: absolute;
   top: 50%;
   left: 50%;
+  backdrop-filter: blur(10px);
   transform: translate(-50%, -50%);
   background-color: var(--bg-color);
   z-index: 100;
@@ -526,20 +581,19 @@ body {
   color: var(--text-color);
 }
 
-
-
-
-.form-error{
+/* login from */
+.form-error {
   border-bottom: 4px solid var(--error-color) !important;
 }
-#strength,#error_message{
+#strength,
+#error_message {
   color: var(--error-color);
   font-size: 1.2rem;
 }
-.correct_message{
+.correct_message {
   color: var(--sub-color) !important;
 }
-#login_message{
+#login_message {
   color: var(--error-color);
   font-size: 1.2rem;
 }
