@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $sql->bind_param("sss", $username, $email, $password);
             $sql->execute();
 
+
             // create a table for user
             $q = "call CreateIndividualUserTables()";
             $res = mysqli_query($conn, $q);
@@ -31,6 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 echo "Welcome $username!";
             }
         }
+            echo "true";
+        } 
+
     else {
             $sql = $conn->prepare("SELECT * FROM users WHERE email=? AND password=?");
             $sql->bind_param("ss", $email, $password);

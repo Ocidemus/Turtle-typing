@@ -13,7 +13,7 @@ function sendData(data) {
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      alert(xhr.responseText);
+      // alert(xhr.responseText);
     }
   };
   xhr.send(JSON.stringify(data));
@@ -145,6 +145,8 @@ signup.addEventListener("click", function (event) {
       password: password.value,
     };
     sendData(dataToSend);
+    const popWindow = document.querySelector(".signup_window");
+    popWindow.classList.toggle("hidden");
   }
 });
 
