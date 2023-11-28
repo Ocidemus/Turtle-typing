@@ -194,11 +194,15 @@ login.addEventListener("click", function (event) {
       xhr.send(JSON.stringify(data));
     }
     sendData(dataToSend, function (responseData) {
-      var user = responseData[0]["user_id"];
-      var userName = responseData[0]["username"];
-      saveName(userName);
-      saveUser(user);
+      if (!responseData || responseData.length === 0) {
+        lmessage.innerText = "Invalid credentials or user does not exist.";
+      } else {
+        var user = responseData[0]["user_id"];
+        var userName = responseData[0]["username"];
+        saveName(userName);
+        saveUser(user);
+        window.location.href = "../index.html";
+      }
     });
-    window.location.href = "../index.html";
   }
 });
