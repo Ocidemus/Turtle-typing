@@ -51,10 +51,16 @@ $data = json_decode(file_get_contents('php://input'), true);
     $user_id_name = $row[0];
 
     if($wpm != 0){
-        $q = "INSERT INTO leaderboard (`username`, `wpm`, `time`, `rawspeed`, `consistency`, `accuracy`) VALUES ('$user_id_name', $wpm, $time, $rawSpeed, $consistency, $accuracy)";
+        $q = "select username from leaderboard where username='$user_id_name'";
         $res = mysqli_query($conn, $q);
-        if($res){
-            echo "dd";
+        $row = mysqli_fetch_array($res);
+        if(!$row){
+            $q = "INSERT INTO leaderboard (`username`, `wpm`, `time`, `rawspeed`, `consistency`, `accuracy`) VALUES ('$user_id_name', $wpm, $time, $rawSpeed, $consistency, $accuracy)";
+            $res = mysqli_query($conn, $q);
+        }
+        else{
+            $q = "UPDATE leaderboard SET wpm=$wpm, time=$time, rawspeed=$rawSpeed, consistency=$consistency, accuracy=$accuracy WHERE username='$user_id_name'";
+            $res = mysqli_query($conn, $q);
         }
     }
 
