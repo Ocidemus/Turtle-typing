@@ -1,7 +1,7 @@
 <?php
 $data = json_decode(file_get_contents('php://input'), true);
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -24,5 +24,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //     echo "Welcome $username!";
     // }
     $conn->close();
-}
+
 ?>

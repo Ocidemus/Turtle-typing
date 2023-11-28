@@ -179,7 +179,7 @@ login.addEventListener("click", function (event) {
     };
     function sendData(data, callback) {
       var xhr = new XMLHttpRequest();
-      xhr.open("POST", "../php/user.php", true);
+      xhr.open("POST", "../php/login_details.php", true);
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
@@ -197,8 +197,10 @@ login.addEventListener("click", function (event) {
       if (!responseData || responseData.length === 0) {
         lmessage.innerText = "Invalid credentials or user does not exist.";
       } else {
+        console.log(responseData);
         var user = responseData[0]["user_id"];
         var userName = responseData[0]["username"];
+        console.log(user, userName);
         saveName(userName);
         saveUser(user);
         window.location.href = "../index.html";

@@ -31,6 +31,15 @@
     width: 0;
   }
 }
+@keyframes jump {
+  0%,
+  50% {
+    transform: translatey(0) scale(1.35);
+  }
+  100% {
+    transform: translatey(-15%) scale(1.35);
+  }
+}
 
 * {
   margin: 0;
@@ -647,11 +656,12 @@ body {
 }
 .leader_board div ul {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1fr 0.5fr;
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
   text-decoration: none;
   align-items: center;
 }
 .leader_board div ul li {
+  margin-left: -2rem;
   color: var(--text-color);
   list-style-type: none;
   font-size: 1.2rem;
@@ -789,8 +799,9 @@ body {
   justify-self: start;
   text-align: center;
   font-weight: 800;
-  align-self: start;
-  /* text-align: center; */
+}
+.user_title ul li:last-child {
+  margin-left: -3rem;
 }
 .user_title ul li i {
   color: var(--text-color);
@@ -811,4 +822,63 @@ body {
 .box .text_message {
   font-size: 1.2rem;
   color: var(--text-color);
+}
+
+/* feedback and complain section */
+.feedback {
+  font-size: 13px;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+  color: var(--text-color);
+}
+.usr {
+  border-radius: 4px;
+  background-color: var(--sub-color);
+  color: var(--text-color);
+  padding: 1rem 2rem;
+  border: none;
+}
+.star-rating {
+  white-space: nowrap;
+}
+.star-rating [type="radio"] {
+  appearance: none;
+}
+.star-rating i {
+  font-size: 1.2em;
+  transition: 0.3s;
+}
+
+.star-rating label:is(:hover, :has(~ :hover)) i {
+  transform: scale(1.35);
+  color: #faec1b;
+  animation: jump 0.5s calc(0.3s + (var(--i) - 1) * 0.15s) alternate infinite;
+}
+.star-rating label:has(~ :checked) i {
+  color: #faec1b;
+}
+.big {
+  margin-top: 5rem;
+  padding: 20px;
+  display: flex;
+  gap: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-color);
+}
+.Complain {
+  padding: 10px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 5px;
+  color: var(--text-color);
+}
+.comp {
+  background-color: var(--sub-color);
+  color: var(--text-color);
+  padding: 1rem 2rem;
+  border: none;
 }

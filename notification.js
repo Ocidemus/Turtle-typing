@@ -42,7 +42,6 @@ function fetchNotification() {
       if (xhr.status === 200) {
         var data = JSON.parse(xhr.responseText);
         const message = document.querySelector(".message_2");
-        console.log(data);
         for (var i = 0; i < data.length; i++) {
           const className = i % 2 === 0 ? "even_row" : "odd_row";
           message.innerHTML += `<div class="box ${className}">
@@ -67,7 +66,6 @@ function fetchAnnouncement() {
       if (xhr.status === 200) {
         var data = JSON.parse(xhr.responseText);
         const message = document.querySelector(".message_1");
-        console.log(data);
         for (var i = 0; i < data.length; i++) {
           const className = i % 2 === 0 ? "even_row" : "odd_row";
           message.innerHTML += `<div class="box ${className}">

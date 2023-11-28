@@ -14,7 +14,7 @@ if ($result->num_rows > 0) {
     $data = $result->fetch_all(MYSQLI_ASSOC);
     echo json_encode($data);
 } else {
-    echo "No data found";
+    echo json_encode("");
 }
 
 $conn->close();
