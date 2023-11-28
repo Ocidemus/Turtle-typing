@@ -693,3 +693,98 @@ body {
   color: var(--error-color);
   font-size: 1.2rem;
 }
+
+.user_details_board {
+  position: absolute;
+  width: 100rem;
+  margin: 0 30rem;
+  overflow: hidden;
+}
+.user_details {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 50%;
+  display: flex;
+  align-items: center;
+  padding: 4rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user_icon {
+  margin-right: 5rem;
+  font-size: 6rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+.user_info {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+.user_name {
+  font-size: 2.4rem;
+  color: var(--main-color);
+  cursor: pointer;
+}
+.user_id {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.user_leaderboard {
+  height: 40rem;
+  overflow-y: scroll;
+}
+.user_leader_header h1 {
+  margin-top: 5rem;
+  color: var(--text-color);
+  font-size: 2rem;
+  align-self: flex-start;
+  font-size: 3.2rem;
+  font-weight: 400;
+}
+.user_leaderboard div ul {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+  justify-content: space-evenly;
+  text-decoration: none;
+}
+.user_leaderboard div ul li {
+  color: var(--text-color);
+  list-style-type: none;
+  font-size: 1.2rem;
+  justify-self: start;
+  text-align: center;
+  font-weight: 800;
+  align-self: start;
+}
+.user_leaderboard div ul li i {
+  color: var(--text-color);
+  margin-right: 1rem;
+}
+
+/* .user_title */
+.user_title ul {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.6fr 0.5fr;
+  text-decoration: none;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 2rem;
+}
+.user_title ul li {
+  color: var(--text-color);
+  list-style-type: none;
+  font-size: 1.2rem;
+  justify-self: start;
+  text-align: center;
+  font-weight: 800;
+  align-self: start;
+  /* text-align: center; */
+}
+.user_title ul li i {
+  color: var(--text-color);
+  margin-right: 1rem;
+}

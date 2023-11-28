@@ -1,5 +1,12 @@
 "use strict";
-import { saveUser, getUser, saveName, getName } from "./theme.js";
+import {
+  saveUser,
+  getUser,
+  saveName,
+  getName,
+  getOption,
+  setOption,
+} from "./theme.js";
 const notification_tab = document.querySelector(".notification_tab");
 const notification_icon = document.querySelector(".menu_notification");
 const main = document.querySelector(".main");
@@ -14,7 +21,14 @@ const textArea = document.querySelector(".text_area");
 const focusMessage = document.querySelector(".focus");
 const custTime = document.querySelector("#custom-time-radio");
 const timeSubmit = document.querySelector("#submit");
+const changeParaType = document.querySelectorAll("input[name='para']");
 
+changeParaType.forEach(function (radio) {
+  radio.addEventListener("click", function () {
+    setOption(radio.value);
+    location.reload();
+  });
+});
 // function to send data to php file
 function sendData(data) {
   var xhr = new XMLHttpRequest();
@@ -76,10 +90,9 @@ focusMessage.addEventListener("click", function () {
 
 //random number
 var number = Math.floor(Math.random() * 10);
-
 // changePara function choose a random string from the object
 function changePara(number) {
-  return text[number].toLowerCase();
+  return text[getOption()][number];
 }
 
 //split string into span elements and concat them in html file
@@ -97,8 +110,7 @@ createLetter(changePara(number));
 // reset button to change paragraph
 reset.addEventListener("click", function (event) {
   event.stopPropagation();
-  number = Math.floor(Math.random() * 10);
-  createLetter(changePara(number));
+  location.reload();
 });
 // function to blink cursor
 function blickCursor() {
@@ -173,8 +185,18 @@ function startTyping() {
 
     return Math.round(wpm); // Round off to the nearest integer
   }
-
+  let shiftPressed = false;
+  document.addEventListener("keyup", function (event) {
+    if (event.key === "Shift") {
+      shiftPressed = false;
+    }
+  });
   document.addEventListener("keydown", function (event) {
+    if (event.key === "Shift") {
+      shiftPressed = true;
+    }
+  });
+  document.addEventListener("keyup", function (event) {
     if (!isTyping) {
       timming();
       isTyping = true;
@@ -182,7 +204,8 @@ function startTyping() {
     const string = document.querySelectorAll("span");
     var left = string[0].getBoundingClientRect().left;
     var top = string[0].getBoundingClientRect().top;
-    if (string[count].innerText == event.key) {
+    var keyValue = shiftPressed ? event.key.toUpperCase() : event.key;
+    if (string[count].innerText == keyValue) {
       string[count].classList.add("correct");
       position(string[count + 1], obj, cursor);
       cursor.style.left = `${obj.l - left}px`;
