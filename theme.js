@@ -19,3 +19,13 @@ export function getUser() {
 export function saveUser(user) {
   localStorage.setItem("user", user);
 }
+
+export function getName()
+{
+  return localStorage.getItem("name") || "admin";
+}
+
+export function saveName(name)
+{
+  localStorage.setItem("name",name);
+}

@@ -1,4 +1,4 @@
-import { saveUser, getUser } from "./theme.js";
+import { saveUser, getUser, getName, saveName } from "./theme.js";
 const signup = document.querySelector("#signup").closest(".submit_button"),
   username = document.getElementById("username"),
   mail = document.getElementById("mail"),
@@ -195,8 +195,10 @@ login.addEventListener("click", function (event) {
     }
     sendData(dataToSend, function (responseData) {
       var user = responseData[0]["user_id"];
+      var userName = responseData[0]["username"];
+      saveName(userName);
       saveUser(user);
-      console.log(getUser());
     });
+    window.location.href = "../index.html";
   }
 });
