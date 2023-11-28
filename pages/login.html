@@ -17,13 +17,24 @@
         <div class="notification_tab hidden">
             <div class="notification_tab-content">
                 <div class="announcement">
-                    <div class="n_text"><i class="fa-solid fa-bullhorn"></i>
+                    <div class="n_text">
+                        <i class="fa-solid fa-bullhorn"></i>
                         <p>Announcements</p>
+                    </div>
+                    <div class="message_1">
+
                     </div>
                 </div>
                 <div class="notification">
-                    <div class="n_text"><i class="fa-solid fa-message"></i>
+                    <div class="n_text">
+                        <i class="fa-solid fa-message"></i>
                         <p>Notifications</p>
+                    </div>
+                    <div class="message_2">
+                        <!-- <div class="box">
+                    <p class="date_time"></p>
+                    <p class="text_message"></p>
+                  </div> -->
                     </div>
                 </div>
             </div>
@@ -99,52 +110,43 @@
     </div>
     <div class="leader_board hidden">
         <div class="leader_header">
-          <h1>All-Time | Leaderbords</h1>
-          <div class="exit"><i class="fa-solid fa-xmark"></i></div>
+            <h1>All-Time | Leaderbords</h1>
+            <div class="exit"><i class="fa-solid fa-xmark"></i></div>
         </div>
         <div class="title">
-          <div>
-            <p>Time 15</p>
-            <div class="row_name">
-              <ul>
-                <li>#rank</li>
-                <li>#name</li>
-                <li>wpm<br><span class="weight">accuracy</span></li>
-                <li>raw<br><span class="weight">consistency</span></li>
-                <li>time</li>
-              </ul>
+            <div>
+                <p>Time 15</p>
+                <div class="row_name">
+                    <ul>
+                        <li>#rank</li>
+                        <li>#name</li>
+                        <li>wpm<br><span class="weight">accuracy</span></li>
+                        <li>raw<br><span class="weight">consistency</span></li>
+                        <li>time</li>
+                    </ul>
+                </div>
             </div>
-          </div>
-          <div>
-            <p>Time 60</p>
-            <div class="row_name">
-              <ul>
-                <li>#rank</li>
-                <li>#name</li>
-                <li>wpm<br><span class="weight">accuracy</span></li>
-                <li>raw<br><span class="weight">consistency</span></li>
-                <li>time</li>
-              </ul>
+            <div>
+                <p>Time 60</p>
+                <div class="row_name">
+                    <ul>
+                        <li>#rank</li>
+                        <li>#name</li>
+                        <li>wpm<br><span class="weight">accuracy</span></li>
+                        <li>raw<br><span class="weight">consistency</span></li>
+                        <li>time</li>
+                    </ul>
+                </div>
             </div>
-          </div>
         </div>
-    
-        <!-- <div class="row_name">
-          <ul>
-            <li>#rank</li>
-            <li>#name</li>
-            <li>wpm<br><span class="weight">accuracy</span></li>
-            <li>raws<br><span class="weight">consistency</span></li>
-            <li>time</li>
-          </ul>
-        </div> -->
         <div class="leader_body">
-          <div class="board_15">
-          </div>
-          <div class="board_60"></div>
+            <div class="board_15">
+            </div>
+            <div class="board_60"></div>
         </div>
-      </div>
+    </div>
     <script src="../notification.js"></script>
+    <script src="../theme.js" type="module"></script>
     <script type="module">
         import { getSavedTheme, saveTheme } from './../theme.js';
 
@@ -154,7 +156,7 @@
         // Set the initial theme based on the saved theme or use the default
         root.href = `../themes/${getSavedTheme()}.css`;
     </script>
-    <script src="../login.js"></script>
+    <script src="../login.js" type="module"></script>
     <script src="../leaderboard.js"></script>
 </body>
 

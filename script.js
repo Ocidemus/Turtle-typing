@@ -1,4 +1,12 @@
 "use strict";
+import {
+  saveUser,
+  getUser,
+  saveName,
+  getName,
+  getOption,
+  setOption,
+} from "./theme.js";
 const notification_tab = document.querySelector(".notification_tab");
 const notification_icon = document.querySelector(".menu_notification");
 const main = document.querySelector(".main");
@@ -13,7 +21,14 @@ const textArea = document.querySelector(".text_area");
 const focusMessage = document.querySelector(".focus");
 const custTime = document.querySelector("#custom-time-radio");
 const timeSubmit = document.querySelector("#submit");
+const changeParaType = document.querySelectorAll("input[name='para']");
 
+changeParaType.forEach(function (radio) {
+  radio.addEventListener("click", function () {
+    setOption(radio.value);
+    location.reload();
+  });
+});
 // function to send data to php file
 function sendData(data) {
   var xhr = new XMLHttpRequest();
@@ -75,10 +90,9 @@ focusMessage.addEventListener("click", function () {
 
 //random number
 var number = Math.floor(Math.random() * 10);
-
 // changePara function choose a random string from the object
 function changePara(number) {
-  return text[number].toLowerCase();
+  return text[getOption()][number];
 }
 
 //split string into span elements and concat them in html file
@@ -96,8 +110,7 @@ createLetter(changePara(number));
 // reset button to change paragraph
 reset.addEventListener("click", function (event) {
   event.stopPropagation();
-  number = Math.floor(Math.random() * 10);
-  createLetter(changePara(number));
+  location.reload();
 });
 // function to blink cursor
 function blickCursor() {
@@ -172,16 +185,31 @@ function startTyping() {
 
     return Math.round(wpm); // Round off to the nearest integer
   }
-
+  let shiftPressed = false;
+  document.addEventListener("keyup", function (event) {
+    if (event.key === "Shift") {
+      shiftPressed = false;
+    }
+  });
   document.addEventListener("keydown", function (event) {
+    if (event.key === "Shift") {
+      shiftPressed = true;
+    }
+  });
+  document.addEventListener("keyup", function (event) {
+    console.log(event.key);
     if (!isTyping) {
       timming();
       isTyping = true;
     }
+    if (event.key === "Shift") {
+      return;
+    }
     const string = document.querySelectorAll("span");
     var left = string[0].getBoundingClientRect().left;
     var top = string[0].getBoundingClientRect().top;
-    if (string[count].innerText == event.key) {
+    var keyValue = shiftPressed ? event.key.toUpperCase() : event.key;
+    if (string[count].innerText == keyValue) {
       string[count].classList.add("correct");
       position(string[count + 1], obj, cursor);
       cursor.style.left = `${obj.l - left}px`;
@@ -247,6 +275,7 @@ function startTyping() {
         pushtime(maxtime);
         displayResult(xAxis, cmp, wpm);
         const dataToSend = {
+          user_id: getUser(),
           wpm: wpmavg,
           time: maxtime,
           rawSpeed: rawSpeed,
@@ -396,3 +425,72 @@ function fetchDataFromPHP() {
   xhr.send();
 }
 fetchDataFromPHP();
+
+//logout function
+var loginUser = getUser();
+const displayName = document.querySelector(".display_name");
+const exit_icon = document.querySelector(".exit_icon");
+const user_page = document.querySelector(".user_page");
+if (loginUser !== "1") {
+  exit_icon.classList.toggle("hide");
+  displayName.innerText = getName();
+  user_page.href = "pages/user.html";
+}
+exit_icon.addEventListener("click", function () {
+  exit_icon.classList.toggle("hide");
+  saveUser(1);
+  displayName.innerHTML = "";
+  saveName("admin");
+  user_page.href = "pages/login.html";
+});
+
+function fetchNotification() {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        var data = JSON.parse(xhr.responseText);
+        const message = document.querySelector(".message_2");
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+          const className = i % 2 === 0 ? "even_row" : "odd_row";
+          message.innerHTML += `<div class="box ${className}">
+        <p class="date_time">${data[i]["notification"]}</p>
+        <p class="text_message">${data[i]["message"]}</p>
+      </div>`;
+        }
+      } else {
+        console.error("Request error:", xhr.status);
+      }
+    }
+  };
+
+  xhr.open("GET", "php/notification.php", true);
+  xhr.send();
+}
+fetchNotification();
+function fetchAnnouncement() {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        var data = JSON.parse(xhr.responseText);
+        const message = document.querySelector(".message_1");
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+          const className = i % 2 === 0 ? "even_row" : "odd_row";
+          message.innerHTML += `<div class="box ${className}">
+        <p class="date_time">${data[i]["date"]}</p>
+        <p class="text_message">${data[i]["announcement"]}</p>
+      </div>`;
+        }
+      } else {
+        console.error("Request error:", xhr.status);
+      }
+    }
+  };
+
+  xhr.open("GET", "php/announcement.php", true);
+  xhr.send();
+}
+fetchAnnouncement();

@@ -12,7 +12,6 @@
 --line-height: calc(var(--font-size) * 1.5);
 --icon-size-small: 1.8rem;
 --icon-size-large: 2.4rem; */
-
 @keyframes slideIn {
   0% {
     width: 0;
@@ -41,6 +40,7 @@
 
 html {
   font-size: 62.5%;
+  /* 1rem=1px */
 }
 
 body {
@@ -51,6 +51,11 @@ body {
 .hidden {
   display: none;
   animation: slideOut 0.2s;
+}
+.hide {
+  perspective: 1000;
+  display: none;
+  transition: all 0.5s;
 }
 
 .blink {
@@ -73,8 +78,8 @@ body {
 
 .header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .effect {
@@ -112,10 +117,6 @@ body {
   width: auto;
 }
 
-.main_tab-logo a svg {
-  fill: red;
-}
-
 .main_tab-options ul {
   display: flex;
   text-decoration: none;
@@ -151,18 +152,35 @@ body {
 /* menu tab */
 /* user and notification */
 .menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 6%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-content: center;
+  justify-content: space-around;
 }
-
+.account {
+  display: grid;
+  grid-template-columns: repeat(2, 0.5fr);
+  text-align: center;
+}
+.user_display {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
+}
+.display_name {
+  color: var(--sub-color);
+}
+.exit_icon {
+  text-decoration: none;
+  color: var(--sub-color);
+}
 .menu_notification i,
 .account i {
   font-size: 1.8rem;
   color: var(--sub-color);
   cursor: pointer;
   transition: all 0.2s;
+  padding-right: 2rem;
 }
 
 .menu_notification i:hover,
@@ -303,9 +321,17 @@ body {
 
 .announcement,
 .notification {
-  height: 50%;
+  margin-top: 2rem;
+  height: 45vh;
 }
-
+.message_1,
+.message_2 {
+  margin-top: 2rem;
+  height: 90%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  color: white;
+}
 /* options-tab */
 /* Style the labels */
 .options_tab {
@@ -674,4 +700,115 @@ body {
 #login_message {
   color: var(--error-color);
   font-size: 1.2rem;
+}
+
+.user_details_board {
+  position: absolute;
+  width: 100rem;
+  margin: 0 30rem;
+  overflow: hidden;
+}
+.user_details {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 50%;
+  display: flex;
+  align-items: center;
+  padding: 4rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user_icon {
+  margin-right: 5rem;
+  font-size: 6rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+.user_info {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+.user_name {
+  font-size: 2.4rem;
+  color: var(--main-color);
+  cursor: pointer;
+}
+.user_id {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.user_leaderboard {
+  height: 40rem;
+  overflow-y: scroll;
+}
+.user_leader_header h1 {
+  margin-top: 5rem;
+  color: var(--text-color);
+  font-size: 2rem;
+  align-self: flex-start;
+  font-size: 3.2rem;
+  font-weight: 400;
+}
+.user_leaderboard div ul {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+  justify-content: space-evenly;
+  text-decoration: none;
+}
+.user_leaderboard div ul li {
+  color: var(--text-color);
+  list-style-type: none;
+  font-size: 1.2rem;
+  justify-self: start;
+  text-align: center;
+  font-weight: 800;
+  align-self: start;
+}
+.user_leaderboard div ul li i {
+  color: var(--text-color);
+  margin-right: 1rem;
+}
+
+/* .user_title */
+.user_title ul {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.6fr 0.5fr;
+  text-decoration: none;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 2rem;
+}
+.user_title ul li {
+  color: var(--text-color);
+  list-style-type: none;
+  font-size: 1.2rem;
+  justify-self: start;
+  text-align: center;
+  font-weight: 800;
+  align-self: start;
+  /* text-align: center; */
+}
+.user_title ul li i {
+  color: var(--text-color);
+  margin-right: 1rem;
+}
+
+.message_2 .box,
+.message_1 .box {
+  border-left: 2px solid var(--main-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.box .date_time {
+  font-size: 1.4rem;
+  color: var(--main-color);
+  font-weight: 500;
+}
+.box .text_message {
+  font-size: 1.2rem;
+  color: var(--text-color);
 }

@@ -17,13 +17,24 @@
         <div class="notification_tab hidden">
             <div class="notification_tab-content">
                 <div class="announcement">
-                    <div class="n_text"><i class="fa-solid fa-bullhorn"></i>
+                    <div class="n_text">
+                        <i class="fa-solid fa-bullhorn"></i>
                         <p>Announcements</p>
+                    </div>
+                    <div class="message_1">
+
                     </div>
                 </div>
                 <div class="notification">
-                    <div class="n_text"><i class="fa-solid fa-message"></i>
+                    <div class="n_text">
+                        <i class="fa-solid fa-message"></i>
                         <p>Notifications</p>
+                    </div>
+                    <div class="message_2">
+                        <!-- <div class="box">
+                    <p class="date_time"></p>
+                    <p class="text_message"></p>
+                  </div> -->
                     </div>
                 </div>
             </div>
@@ -51,7 +62,12 @@
                         <i class="fa-solid fa-bell"></i>
                     </div>
                     <div class="account">
-                        <a href="login.html"><i class="fa-solid fa-user"></i></a>
+                        <a href="../index.html" class="exit_icon hide"><i
+                                class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                        <div class="user_display">
+                            <a href="login.html" class="user_page"><i class="fa-solid fa-user"></i></a>
+                            <div class="display_name"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -285,6 +301,7 @@
         </div>
     </div>
 
+
     <script src="../notification.js"></script>
     <script src="../theme.js" type="module"></script>
     <script type="module">
@@ -307,6 +324,7 @@
             saveTheme(selectedTheme);
         });
     </script>
+    <script src="../logout.js" type="module"></script>
     <script src="../leaderboard.js"></script>
 </body>
 

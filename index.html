@@ -19,13 +19,24 @@
     <div class="notification_tab hidden">
       <div class="notification_tab-content">
         <div class="announcement">
-          <div class="n_text"><i class="fa-solid fa-bullhorn"></i>
+          <div class="n_text">
+            <i class="fa-solid fa-bullhorn"></i>
             <p>Announcements</p>
+          </div>
+          <div class="message_1">
+
           </div>
         </div>
         <div class="notification">
-          <div class="n_text"><i class="fa-solid fa-message"></i>
+          <div class="n_text">
+            <i class="fa-solid fa-message"></i>
             <p>Notifications</p>
+          </div>
+          <div class="message_2">
+            <!-- <div class="box">
+              <p class="date_time"></p>
+              <p class="text_message"></p>
+            </div> -->
           </div>
         </div>
       </div>
@@ -53,7 +64,11 @@
             <i class="fa-solid fa-bell"></i>
           </div>
           <div class="account">
-            <a href="pages/login.html"><i class="fa-solid fa-user"></i></a>
+            <a href="index.html" class="exit_icon hide"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            <div class="user_display">
+              <a href="pages/login.html" class="user_page"><i class="fa-solid fa-user"></i></a>
+              <div class="display_name"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -62,17 +77,17 @@
       <div class="typing_area ">
         <div class="options_tab">
           <div class="words">
-            <input type="radio" id="punctuation-radio" name="para">
+            <input type="radio" id="punctuation-radio" name="para" value="punctuation">
             <label for="punctuation-radio"> @ punctuation</label>
-            <input type="radio" id="numbers-radio" name="para">
+            <input type="radio" id="numbers-radio" name="para" value="number">
             <label for="numbers-radio"> # numbers</label>
           </div>
           <div class="time">
             <input type="radio" id="time-radio" name="time" checked value="1">
             <label for="time-radio"> <i class="fa-solid fa-clock"></i>time</label>
-            <input type="radio" id="words-radio" name="time">
+            <input type="radio" id="words-radio" name="para" value="normal">
             <label for="words-radio"> <i class="fa-solid fa-a"></i> words</label>
-            <input type="radio" id="quotes-radio" name="time">
+            <input type="radio" id="quotes-radio" name="para" value="quotes">
             <label for="quotes-radio"> <i class="fa-solid fa-quote-left"></i>quotes</label>
             <input type="radio" id="custom-radio" name="time">
             <label for="custom-radio"> <i class="fa-solid fa-screwdriver-wrench"></i>custom</label>
@@ -139,7 +154,7 @@
             <p>time</p><span id="time">0</span>
           </div>
         </div>
-        <div class="text-reset"><a href="../index.html"><i class="fa-solid fa-rotate-right"></i></a></div>
+        <div class="text-reset"><a href="index.html"><i class="fa-solid fa-rotate-right"></i></a></div>
       </div>
       <!-----------end of result tab -------------->
     </div>
@@ -209,7 +224,7 @@
     root.href = `themes/${getSavedTheme()}.css`;
   </script>
   <script src="node_modules/chartjs/dist/chart.umd.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js" type="module"></script>
 </body>
 
 </html>

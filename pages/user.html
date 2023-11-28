@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../img_css/all.min.css">
     <link rel="stylesheet" href="../img_css/fontawesome.min.css">
-    <title>About | Turtletype</title>
+    <title>User | Turtletype</title>
 </head>
 
 <body>
@@ -109,18 +109,44 @@
                 </div>
             </div>
         </div>
+        <div class="user_details_board">
+            <div class="user_details">
+                <div class="user_icon"><i class="fa-solid fa-user-large"></i></div>
+                <div class="user_info">
+                    <div class="user_name"></div>
+                    <div class="user_id"></div>
+                </div>
+            </div>
+            <div class="user_body">
+                <div class="user_leader_header">
+                    <h1>All-Time | Leaderbords</h1>
+                </div>
+                <div class="user_title">
+                    <ul>
+                        <li>#rank</li>
+                        <li>wpm<br><span class="weight">accuracy</span></li>
+                        <li>raw<br><span class="weight">consistency</span></li>
+                        <li>time</li>
+                    </ul>
+                </div>
+                <div class="user_leaderboard">
 
+                </div>
+            </div>
+        </div>
     </div>
+
     <script src="../notification.js"></script>
     <script type="module">
-        import { getSavedTheme, saveTheme } from './../theme.js';
-
+        import { getSavedTheme, saveTheme, saveName, getName } from './../theme.js';
         const root = document.getElementById("root");
         const themeSelect = document.getElementById("theme-select");
         root.href = `../themes/${getSavedTheme()}.css`;
+        document.querySelector("title").innerText = `${getName()} | Turtletype`;
     </script>
     <script src="../logout.js" type="module"></script>
     <script src="../leaderboard.js"></script>
+    <script src="../user_page.js" type="module"></script>
 </body>
 
 </html>
