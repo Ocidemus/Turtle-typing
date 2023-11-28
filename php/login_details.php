@@ -8,21 +8,22 @@
     $db_name = "turtle";
     
     $conn = new mysqli($servername, $username, $password, $db_name);
-
-    $user_id = $data['user_id'];
-    $tableName = "user_" . $user_id;
     
-    $sql = "SELECT * FROM " . $tableName;
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $email = isset($data['email']) ? $data['email'] : null;
+    $password = isset($data['password']) ? $data['password'] : null;
+
+
+    $sql = $conn->prepare("SELECT * FROM users where email=? and password=?");
+    $sql->bind_param("ss",$email, $password);
+    $sql->execute();
+    $result = $sql->get_result();
 
     if ($result->num_rows > 0) {
         $data = $result->fetch_all(MYSQLI_ASSOC);
         echo json_encode($data);
     }
     else{
-        echo json_encode($data);
+        echo json_encode("");
     }
     $conn->close();
 

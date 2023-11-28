@@ -252,6 +252,46 @@
             </div>
             <!------------------settings tab ends-->
         </div>
+        <div class="big">
+            <div class="feedback">
+                <h2>FeedBack</h2><br>
+                <input type="text" class="usr" placeholder="user id">
+                <br>
+                <br>
+                <textarea rows="20" cols="80" id="advice" class="usr"></textarea>
+                <br>
+                <br>
+
+                <p>Rating: <span class="star-rating">
+                        <label for="rate-1" style="--i:1"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" name="rating" id="rate-1" value="1">
+                        <label for="rate-2" style="--i:2"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" name="rating" id="rate-2" value="2" checked>
+                        <label for="rate-3" style="--i:3"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" name="rating" id="rate-3" value="3">
+                        <label for="rate-4" style="--i:4"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" name="rating" id="rate-4" value="4">
+                        <label for="rate-5" style="--i:5"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" name="rating" id="rate-5" value="5">
+                    </span></p>
+                <br>
+
+                <input type="submit" class="usr" value=" Submit " name="rating">
+            </div>
+            <br>
+
+            <div class="Complain">
+                <h2>Complain</h2><br>
+                <input type="text" class="comp" placeholder="user id">
+                <br>
+                <br>
+                <textarea rows="20" cols="80" id="problem" class="comp"></textarea>
+                <br>
+                <br>
+                <br>
+                <input type="submit" class="comp" value=" Submit " name="comp">
+            </div>
+        </div>
     </div>
     <div class="leader_board hidden">
         <div class="leader_header">
@@ -300,7 +340,6 @@
             <div class="board_60"></div>
         </div>
     </div>
-
 
     <script src="../notification.js"></script>
     <script src="../theme.js" type="module"></script>
