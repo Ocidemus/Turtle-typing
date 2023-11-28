@@ -253,45 +253,52 @@
             <!------------------settings tab ends-->
         </div>
         <div class="big">
-            <div class="feedback">
-                <h2>FeedBack</h2><br>
-                <input type="text" class="usr" placeholder="user id">
+            <div class="feedback-section">
+                <h2>FeedBack</h2>
+                <div class="input-group">
+                    <input type="text" class="user-input user-id" placeholder="User ID">
+                </div>
+                <div class="input-group">
+                    <textarea rows="10" cols="50" id="advice" class="user-input feedback-text"
+                        placeholder="Your feedback"></textarea>
+                </div>
+                <div class="rating-section">
+                    <p>Rating:</p>
+                    <br>
+                    <div class="star-rating">
+                        <input type="radio" name="feedback-rating" id="feedback-rate-1" value="1">
+                        <label for="feedback-rate-1"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" name="feedback-rating" id="feedback-rate-1" value="2">
+                        <label for="feedback-rate-1"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" name="feedback-rating" id="feedback-rate-1" value="3">
+                        <label for="feedback-rate-1"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" name="feedback-rating" id="feedback-rate-1" value="4">
+                        <label for="feedback-rate-1"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" name="feedback-rating" id="feedback-rate-1" value="5">
+                        <label for="feedback-rate-1"><i class="fa-solid fa-star"></i></label>
+                    </div>
+                </div>
                 <br>
-                <br>
-                <textarea rows="20" cols="80" id="advice" class="usr"></textarea>
-                <br>
-                <br>
-
-                <p>Rating: <span class="star-rating">
-                        <label for="rate-1" style="--i:1"><i class="fa-solid fa-star"></i></label>
-                        <input type="radio" name="rating" id="rate-1" value="1">
-                        <label for="rate-2" style="--i:2"><i class="fa-solid fa-star"></i></label>
-                        <input type="radio" name="rating" id="rate-2" value="2" checked>
-                        <label for="rate-3" style="--i:3"><i class="fa-solid fa-star"></i></label>
-                        <input type="radio" name="rating" id="rate-3" value="3">
-                        <label for="rate-4" style="--i:4"><i class="fa-solid fa-star"></i></label>
-                        <input type="radio" name="rating" id="rate-4" value="4">
-                        <label for="rate-5" style="--i:5"><i class="fa-solid fa-star"></i></label>
-                        <input type="radio" name="rating" id="rate-5" value="5">
-                    </span></p>
-                <br>
-
-                <input type="submit" class="usr" value=" Submit " name="rating">
+                <div class="input-group">
+                    <input type="submit" class="submit-feedback" value="Submit">
+                </div>
             </div>
-            <br>
-
-            <div class="Complain">
-                <h2>Complain</h2><br>
-                <input type="text" class="comp" placeholder="user id">
-                <br>
-                <br>
-                <textarea rows="20" cols="80" id="problem" class="comp"></textarea>
-                <br>
-                <br>
-                <br>
-                <input type="submit" class="comp" value=" Submit " name="comp">
+            <div class="complain-section">
+                <h2>Complain</h2>
+                <div class="input-group">
+                    <input type="text" class="user-input user-id-complain" placeholder="User ID">
+                </div>
+                <div class="input-group">
+                    <textarea rows="10" cols="50" id="problem" class="user-input complain-text"
+                        placeholder="Describe the issue"></textarea>
+                </div>
+                <div class="input-group">
+                    <input type="submit" class="submit-complain" value="Submit">
+                </div>
             </div>
+
         </div>
+
     </div>
     <div class="leader_board hidden">
         <div class="leader_header">
@@ -365,6 +372,7 @@
     </script>
     <script src="../logout.js" type="module"></script>
     <script src="../leaderboard.js"></script>
+    <script src="../feedback.js"></script>
 </body>
 
 </html>

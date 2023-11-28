@@ -35,4 +35,5 @@ const text = {
     9: "Scout Finch: 'Until I feared I would lose it, I never loved to read. One does not love breathing.' Atticus Finch: 'You just hold your head high and keep those fists down. No matter what anybody says to you, don't you let 'em get your goat.'",
     10: "Clarice Starling: 'The world's more interesting with you in it.' Hannibal Lecter: 'A census taker once tried to test me. I ate his liver with some fava beans and a nice Chianti.'",
   },
+  number: {},
 };
