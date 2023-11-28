@@ -6,13 +6,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = "root";
     $password = "";
     $db_name = "turtle";
-    
+
     $conn = new mysqli($servername, $username, $password, $db_name);
 
     $user_id = $data['user_id'];
     $tableName = "user_" . $user_id;
-    
-    $sql = "SELECT * FROM " . $tableName;
+
+    $sql = "SELECT wpm, accuracy, rawspeed, consistency, time FROM " . $tableName;
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();

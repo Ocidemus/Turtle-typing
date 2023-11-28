@@ -6,10 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $username = "root";
     $password = "";
     $db_name = "turtle";
-    
+
     $conn = new mysqli($servername, $username, $password, $db_name);
-    
-    $sql = "SELECT * FROM announcement";
+
+    $sql = "SELECT date, announcement FROM announcement";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
     $data = $result->fetch_all(MYSQLI_ASSOC);
