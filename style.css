@@ -321,9 +321,17 @@ body {
 
 .announcement,
 .notification {
-  height: 50%;
+  margin-top: 2rem;
+  height: 45vh;
 }
-
+.message_1,
+.message_2 {
+  margin-top: 2rem;
+  height: 90%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  color: white;
+}
 /* options-tab */
 /* Style the labels */
 .options_tab {
@@ -787,4 +795,20 @@ body {
 .user_title ul li i {
   color: var(--text-color);
   margin-right: 1rem;
+}
+
+.message_2 .box,
+.message_1 .box {
+  border-left: 2px solid var(--main-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.box .date_time {
+  font-size: 1.4rem;
+  color: var(--main-color);
+  font-weight: 500;
+}
+.box .text_message {
+  font-size: 1.2rem;
+  color: var(--text-color);
 }

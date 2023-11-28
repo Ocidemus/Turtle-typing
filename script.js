@@ -197,9 +197,13 @@ function startTyping() {
     }
   });
   document.addEventListener("keyup", function (event) {
+    console.log(event.key);
     if (!isTyping) {
       timming();
       isTyping = true;
+    }
+    if (event.key === "Shift") {
+      return;
     }
     const string = document.querySelectorAll("span");
     var left = string[0].getBoundingClientRect().left;
@@ -439,3 +443,54 @@ exit_icon.addEventListener("click", function () {
   saveName("admin");
   user_page.href = "pages/login.html";
 });
+
+function fetchNotification() {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        var data = JSON.parse(xhr.responseText);
+        const message = document.querySelector(".message_2");
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+          const className = i % 2 === 0 ? "even_row" : "odd_row";
+          message.innerHTML += `<div class="box ${className}">
+        <p class="date_time">${data[i]["notification"]}</p>
+        <p class="text_message">${data[i]["message"]}</p>
+      </div>`;
+        }
+      } else {
+        console.error("Request error:", xhr.status);
+      }
+    }
+  };
+
+  xhr.open("GET", "php/notification.php", true);
+  xhr.send();
+}
+fetchNotification();
+function fetchAnnouncement() {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        var data = JSON.parse(xhr.responseText);
+        const message = document.querySelector(".message_1");
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+          const className = i % 2 === 0 ? "even_row" : "odd_row";
+          message.innerHTML += `<div class="box ${className}">
+        <p class="date_time">${data[i]["date"]}</p>
+        <p class="text_message">${data[i]["announcement"]}</p>
+      </div>`;
+        }
+      } else {
+        console.error("Request error:", xhr.status);
+      }
+    }
+  };
+
+  xhr.open("GET", "php/announcement.php", true);
+  xhr.send();
+}
+fetchAnnouncement();

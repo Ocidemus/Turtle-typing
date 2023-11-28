@@ -23,4 +23,16 @@ const text = {
     9: "upon the rocky cliff overlooking the turbulent sea a solitary lighthouse stood tall its beacon piercing the darkness waves crashed relentlessly against the jagged rocks their thunderous roars harmonizing with the rhythmic pulse of the beacon a storm brewed on the horizon dark clouds swirling ominously as if nature itself were staging a dramatic performance yet within the stoic lighthouse a sense of calm pervaded the keeper diligently tending to the eternal dance of light and shadow a timeless saga unfolded in this maritime theater where the lighthouse stood as a steadfast guardian of the",
     10: "by the riverside a weeping willow stood tall its branches cascading like a veil around the water edge the river flowed gently carrying reflections of the surrounding nature a symphony of frogs and crickets serenaded the night creating a lullaby for the peaceful creatures that called the riverside home amidst the stillness fireflies flickered like fleeting stars in the obsidian sky painting a mesmerizing dance of light and shadow the moon hung low casting a silvery glow on the scene turning the riverside into a tranquil dreamscape where time seemed to stand still",
   },
+  quotes: {
+    1: "Sherlock Holmes: 'When you have eliminated the impossible, whatever remains, however improbable, must be the truth.' Dr. John Watson: 'You see, but you do not observe.'",
+    2: "Ebenezer Scrooge: 'I will honour Christmas in my heart, and try to keep it all the year. I will live in the Past, the Present, and the Future.' Tiny Tim: 'God bless us, every one!'",
+    3: "Holden Caulfield: 'Don't ever tell anybody anything. If you do, you start missing everybody.' Mr. Antolini: 'The mark of the immature man is that he wants to die nobly for a cause, while the mark of the mature man is that he wants to live humbly for one.'",
+    4: "Frodo Baggins: 'I wish it need not have happened in my time.' Gandalf: 'So do I, and so do all who live to see such times. But that is not for them to decide. All we have to decide is what to do with the time that is given us.'",
+    5: "Huckleberry Finn: 'You can't pray a lie.' Tom Sawyer: 'The less there is to justify a traditional custom, the harder it is to get rid of it.' Jim: 'Laws don't sound good to me, 'ceptin' when they're for us.'",
+    6: "Captain Ahab: 'I'd strike the sun if it insulted me.' Ishmael: 'Call me Ishmael.' Captain Ahab: 'From hell's heart, I stab at thee; for hate's sake, I spit my last breath at thee.'",
+    7: "Dracula: 'Listen to them, the children of the night. What music they make!' Professor Abraham Van Helsing: 'The blood is the life.'",
+    8: "Elizabeth Swann: 'It's not just about living forever, Jackie. The trick is living with yourself forever.' Captain Jack Sparrow: 'Not all treasure is silver and gold, mate.'",
+    9: "Scout Finch: 'Until I feared I would lose it, I never loved to read. One does not love breathing.' Atticus Finch: 'You just hold your head high and keep those fists down. No matter what anybody says to you, don't you let 'em get your goat.'",
+    10: "Clarice Starling: 'The world's more interesting with you in it.' Hannibal Lecter: 'A census taker once tried to test me. I ate his liver with some fava beans and a nice Chianti.'",
+  },
 };
