@@ -824,20 +824,6 @@ body {
 }
 
 /* feedback and complain section */
-.feedback {
-  font-size: 13px;
-  font-weight: bold;
-  text-align: left;
-  padding: 10px;
-  color: var(--text-color);
-}
-.usr {
-  border-radius: 4px;
-  background-color: var(--sub-color);
-  color: var(--text-color);
-  padding: 1rem 2rem;
-  border: none;
-}
 .star-rating {
   white-space: nowrap;
 }
@@ -857,27 +843,35 @@ body {
 .star-rating label:has(~ :checked) i {
   color: #faec1b;
 }
-.big {
-  margin-top: 5rem;
+
+.feedback-section,
+.complain-section {
   padding: 20px;
-  display: flex;
-  gap: 40px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--text-color);
-}
-.Complain {
-  padding: 10px;
   font-size: 13px;
   font-weight: bold;
-  border-radius: 5px;
   color: var(--text-color);
 }
-.comp {
+
+.input-group {
+  margin-bottom: 10px;
+}
+.user-input {
+  border-radius: 4px;
   background-color: var(--sub-color);
   color: var(--text-color);
   padding: 1rem 2rem;
   border: none;
+  margin: 1rem 0 1rem 0;
+}
+.big {
+  width: 70%;
+  display: flex;
+  margin: 10rem auto;
+  justify-content: space-between;
+}
+
+.submit-feedback,
+.submit-complain {
+  cursor: pointer;
+  padding: 0.5rem 2rem;
 }
