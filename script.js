@@ -197,9 +197,13 @@ function startTyping() {
     }
   });
   document.addEventListener("keyup", function (event) {
+    console.log(event.key);
     if (!isTyping) {
       timming();
       isTyping = true;
+    }
+    if (event.key === "Shift") {
+      return;
     }
     const string = document.querySelectorAll("span");
     var left = string[0].getBoundingClientRect().left;
