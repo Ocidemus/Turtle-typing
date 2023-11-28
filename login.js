@@ -197,10 +197,8 @@ login.addEventListener("click", function (event) {
       if (!responseData || responseData.length === 0) {
         lmessage.innerText = "Invalid credentials or user does not exist.";
       } else {
-        console.log(responseData);
         var user = responseData[0]["user_id"];
         var userName = responseData[0]["username"];
-        console.log(user, userName);
         saveName(userName);
         saveUser(user);
         window.location.href = "../index.html";
