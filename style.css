@@ -52,6 +52,11 @@ body {
   display: none;
   animation: slideOut 0.2s;
 }
+.hide {
+  perspective: 1000;
+  display: none;
+  transition: all 0.5s;
+}
 
 .blink {
   display: none;
@@ -73,8 +78,8 @@ body {
 
 .header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .effect {
@@ -112,10 +117,6 @@ body {
   width: auto;
 }
 
-.main_tab-logo a svg {
-  fill: red;
-}
-
 .main_tab-options ul {
   display: flex;
   text-decoration: none;
@@ -151,18 +152,35 @@ body {
 /* menu tab */
 /* user and notification */
 .menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 6%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-content: center;
+  justify-content: space-around;
 }
-
+.account {
+  display: grid;
+  grid-template-columns: repeat(2, 0.5fr);
+  text-align: center;
+}
+.user_display {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
+}
+.display_name {
+  color: var(--sub-color);
+}
+.exit_icon {
+  text-decoration: none;
+  color: var(--sub-color);
+}
 .menu_notification i,
 .account i {
   font-size: 1.8rem;
   color: var(--sub-color);
   cursor: pointer;
   transition: all 0.2s;
+  padding-right: 2rem;
 }
 
 .menu_notification i:hover,
@@ -483,7 +501,6 @@ body {
   border: none;
   cursor: pointer;
 }
-
 
 .submit_button {
   margin-top: 2.5rem;
