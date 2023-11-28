@@ -661,7 +661,6 @@ body {
   align-items: center;
 }
 .leader_board div ul li {
-  margin-left: -2rem;
   color: var(--text-color);
   list-style-type: none;
   font-size: 1.2rem;
