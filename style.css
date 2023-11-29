@@ -41,15 +41,6 @@
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -874,6 +865,19 @@ body {
   padding: 0.5rem 2rem;
 }
 
+.about-section {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: var(--sub-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+  color: var(--text-color);
+  font-size: 2.8rem;
+}
 
 .about-section p {
   line-height: 1.6;
@@ -917,6 +921,15 @@ body {
 .about-section ul li ul li {
   color: #555;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .about_icon img {
   height: 4rem;
   width: 4rem;
@@ -928,7 +941,6 @@ body {
   border-radius: 0.5rem;
   opacity: 0;
   animation: fadeIn 1s ease-out forwards;
-
 }
 footer {
   background-color: var(--sub-color); /* Sea green */
@@ -949,4 +961,3 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
-
