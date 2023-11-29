@@ -80,7 +80,7 @@ document
       message_box.innerText = "User Id cannot be empty.";
     }
     if (!text.value) {
-      message_box.innerText = "Please entry your complaint.";
+      message_box.innerText = "Please entry your complain.";
     } else {
       const dataToSend = {
         user_id: user_id.value,

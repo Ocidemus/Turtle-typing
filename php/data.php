@@ -28,10 +28,7 @@ $data = json_decode(file_get_contents('php://input'), true);
         $stmt->bind_param("iiiii", $wpm, $accuracy, $rawSpeed, $consistency, $time);
         $stmt->execute();
         $stmt->close();
-        // echo "Data inserted successfully.";
-    } else {
-        // echo "Error in SQL query preparation: " . $conn->error;
-    }
+    } 
 
     // Insert best result into leaderboard
     $q = "SELECT wpm, accuracy, rawspeed, consistency, time FROM " . $tableName . " WHERE time=15 OR time=60 ORDER BY wpm DESC, accuracy DESC, rawspeed DESC LIMIT 1";

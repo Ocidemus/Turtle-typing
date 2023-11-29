@@ -201,6 +201,7 @@ login.addEventListener("click", function (event) {
         var userName = responseData[0]["username"];
         saveName(userName);
         saveUser(user);
+        location.reload();
         window.location.href = "../index.html";
       }
     });

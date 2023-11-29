@@ -41,6 +41,15 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -863,4 +872,76 @@ body {
 .submit-complain {
   cursor: pointer;
   padding: 0.5rem 2rem;
+}
+
+.about-section {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 0.8rem;
+  background-color: var(--sub-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+}
+
+.about-section h2 {
+  color: #2e8b57;
+  font-size: 2.8rem;
+}
+
+.about-section p {
+  line-height: 1.6;
+  color: var(--text-color);
+  font-size: 1.8rem;
+}
+
+.about-section button {
+  background-color: #2e8b57;
+  color: white;
+  border: none;
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+  border-radius: 0.3125rem;
+}
+
+.about-section button:hover {
+  background-color: #228b22;
+}
+
+.about-section ul {
+  list-style-type: none;
+  padding: 0;
+  color: var(--text-color);
+  font-size: 1.6rem;
+}
+
+.about-section li {
+  margin-bottom: 0.625rem;
+}
+
+.about-section strong {
+  color: #2e8b57;
+}
+
+.about-section ul li ul {
+  margin-top: 0.3125rem;
+  margin-left: 1.25rem;
+}
+
+.about-section ul li ul li {
+  color: #555;
+}
+
+.about_icon img {
+  height: 4rem;
+  width: 4rem;
+}
+.team-contributions {
+  margin-top: 1.25rem;
+  background-color: #f9f9f9;
+  padding: 0.9375rem;
+  border-radius: 0.5rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  overflow-y: scroll;
 }
