@@ -864,3 +864,110 @@ body {
   cursor: pointer;
   padding: 0.5rem 2rem;
 }
+
+
+
+
+
+
+
+.about-section {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: var(--sub-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+  color: var(--text-color);
+  font-size: 2.8rem;
+}
+
+.about-section p {
+  line-height: 1.6;
+  color: var(--text-color);
+  font-size: 1.8rem;
+}
+
+.about-section button {
+  background-color: #2e8b57;
+  color: white;
+  border: none;
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+  border-radius: 0.3125rem;
+}
+
+.about-section button:hover {
+  background-color: #228b22;
+}
+
+.about-section ul {
+  list-style-type: none;
+  padding: 0;
+  color: var(--text-color);
+  font-size: 1.6rem;
+}
+
+.about-section li {
+  margin-bottom: 0.625rem;
+}
+
+.about-section strong {
+  color: #2e8b57;
+}
+
+.about-section ul li ul {
+  margin-top: 0.3125rem;
+  margin-left: 1.25rem;
+}
+
+.about-section ul li ul li {
+  color: #555;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.about_icon img {
+  height: 4rem;
+  width: 4rem;
+}
+.team-contributions {
+  margin-top: 1.25rem;
+  background-color: #f9f9f9;
+  padding: 0.9375rem;
+  border-radius: 0.5rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+
+
+
+footer {
+  background-color: var(--sub-color); /* Sea green */
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
