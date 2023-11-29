@@ -108,6 +108,86 @@
                     <div class="board_60"></div>
                 </div>
             </div>
+            <section class="about-section">
+                <h2>About Turtle Typing</h2>
+                <p>
+                    Dive into the serene world of Turtle Typing, where the art of typing is as graceful as a gentle swim in
+                    calm waters! 🐢🌊
+                </p>
+                <br>
+                <p>
+                     Our platform is designed to make your typing journey enjoyable, whether you're a beginner or a seasoned typist. Just like a turtle's steady and deliberate pace, we believe in learning at your own comfortable speed.
+                  </p>
+                  <p>
+                    Features:
+                    <ul>
+                        <li>🐚 Relaxing and randomly generated typing exercises</li>
+                        <li>🌈 Real-time performance feedback</li>
+                        <li>🐢 Customizable difficulty levels</li>
+                        <li>📊 Track your progress with ease</li>
+                    </ul>
+                </p>
+                <p>
+                    Whether you're a typing novice or a keyboard sea turtle, Turtle Typing is here to make your typing practice a peaceful and fulfilling experience.
+                </p>
+
+                <div class="about_icon"><img src="../img/logo.png" alt="Turtle Typing Logo"></div>
+                <h1>Turtle Typing</h1>
+
+                <button class="display_button">Show Team Contributions</button>
+
+                <div class="team-contributions">
+                    <h3>Meet Our Team:</h3>
+
+                    <ul>
+                        <li>
+                            <strong>Aryan:</strong>
+                            <ul>
+                                <li>Leaderboard Design</li>
+                                <li>Backend (Extracting Data)</li>
+                                <li>About Section Design</li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <strong>Shivam:</strong>
+                            <ul>
+                                <li>Typing Function and Design</li>
+                                <li>Backend (Save Data)</li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <strong>Abhinav:</strong>
+                            <ul>
+                                <li>Backend Tables and Procedure</li>
+                                <li>Backend (leaderboard insertion and updation)</li>
+                                <li>Backend (User table creation)</li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <strong>Tanmay:</strong>
+                            <ul>
+                                <li>Feedback and Complaint Design</li>
+                                <li>Backend Connection and Themes</li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <strong>Sabeeh:</strong>
+                            <ul>
+                                <li>Login Page Design</li>
+                                <li>Backend (Extracting Data)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <footer>
+
+                <p>© 2023 Turtle Typing. All rights reserved. | <a href="https://monkeytype.com/privacy-policy.html">Privacy Policy</a> | <a href="https://monkeytype.com/terms-of-service.html">Terms of Service</a></p>
+            </footer>
         </div>
         <section class="about-section">
             <h2>About Turtle Typing</h2>
@@ -186,6 +266,11 @@
             teamContributions.classList.toggle("hidden");
         });
     </script>
+    <script>const teamContributions = document.querySelector(".team-contributions");
+        const display = document.querySelector(".display_button");
+        display.addEventListener("click", function () {
+            teamContributions.classList.toggle("hidden");
+        });</script>
     <script src="../logout.js" type="module"></script>
     <script src="../leaderboard.js"></script>
 </body>
