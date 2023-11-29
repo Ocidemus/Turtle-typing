@@ -832,18 +832,7 @@ body {
 }
 .star-rating i {
   font-size: 1.2em;
-  transition: 0.3s;
 }
-
-.star-rating label:is(:hover, :has(~ :hover)) i {
-  transform: scale(1.35);
-  color: #faec1b;
-  animation: jump 0.5s calc(0.3s + (var(--i) - 1) * 0.15s) alternate infinite;
-}
-.star-rating label:has(~ :checked) i {
-  color: #faec1b;
-}
-
 .feedback-section,
 .complain-section {
   padding: 20px;
