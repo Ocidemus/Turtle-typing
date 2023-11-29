@@ -140,7 +140,7 @@
 
                 <button class="display_button">Show Team Contributions</button>
 
-                <div class="team-contributions">
+                <div class="team-contributions hidden">
                     <h3>Meet Our Team:</h3>
 
                     <ul>
@@ -190,9 +190,9 @@
             </section>
             <footer>
 
-                <p>© 2023 Turtle Typing. All rights reserved. | <a
+                <div>© 2023 Turtle Typing. All rights reserved. | <a
                         href="https://monkeytype.com/privacy-policy.html">Privacy Policy</a> | <a
-                        href="https://monkeytype.com/terms-of-service.html">Terms of Service</a></p>
+                        href="https://monkeytype.com/terms-of-service.html">Terms of Service</a></div>
             </footer>
         </div>
 
@@ -208,6 +208,7 @@
         const display = document.querySelector(".display_button");
         display.addEventListener("click", function () {
             teamContributions.classList.toggle("hidden");
+            document.querySelector(".about-section").classList.toggle("height");
         });
     </script>
     <script src="../logout.js" type="module"></script>

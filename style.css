@@ -866,12 +866,14 @@ body {
 }
 
 .about-section {
-  max-width: 800px;
-  margin: 20px auto;
+  max-width: 90%;
+  margin: 5rem auto;
   padding: 20px;
   border-radius: 8px;
   background-color: var(--sub-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+  height: 50vh;
 }
 
 .about-section h2 {
@@ -941,14 +943,16 @@ body {
   border-radius: 0.5rem;
   opacity: 0;
   animation: fadeIn 1s ease-out forwards;
+  overflow-y: hidden;
 }
 footer {
   background-color: var(--sub-color); /* Sea green */
   color: white;
   text-align: center;
-  padding: 1em 0;
-  position: fixed;
+  padding: 1rem 0;
+  position: absolute;
   bottom: 0;
+  left: 0;
   width: 100%;
 }
 
@@ -960,4 +964,8 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+.height {
+  height: 80vh;
+  transition: all 0.2s ease-in-out;
 }
